@@ -2,7 +2,8 @@
 var activeActor;
 var storyCheck = true;
 var prevActor = "Ichiro";
-window.screen.lockOrientation(landscape);
+locOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation || screen.orientation.lock;
+locOrientation('landscape')
 function ichStep(){
   actor.Ichiro.takeStep();
 };
