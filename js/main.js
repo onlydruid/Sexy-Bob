@@ -2,6 +2,7 @@
 var activeActor;
 var storyCheck = true;
 var prevActor = "Ichiro";
+window.screen.lockOrientation(landscape);
 function ichStep(){
   actor.Ichiro.takeStep();
 };

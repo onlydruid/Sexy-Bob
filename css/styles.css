@@ -114,9 +114,10 @@ background-size: cover;
 #story_box {
   z-index: 2;
   width: 94vw;
+  margin: 20px 3vw;
   position: absolute;
-  padding: 2vh;
-  height: 20vh;
+  padding: 4vh;
+  height: 25vh;
   border-radius: 25px;
   border-style: double;
   border-color: purple;
@@ -124,7 +125,4 @@ background-size: cover;
   position: absolute;
   bottom: 0;
   background-color: #ffccff;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
