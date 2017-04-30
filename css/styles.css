@@ -8,6 +8,13 @@ body {
   clear: both;
 }
 
+@font-face {
+    font-family: "Anton";
+    src: url("../fonts/Anton-Regular.ttf") format("opentype");   
+        /* Make sure you defined the correct path, which is related to
+            the location of your file `my_css.css` */ 
+    }
+
 /* MENU ----------------------------------------------------------------------------------------------*/
 
 #play_menu{
