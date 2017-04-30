@@ -1,0 +1,127 @@
+body {
+  margin: 0;
+  overflow-y: hidden;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* MENU ----------------------------------------------------------------------------------------------*/
+
+#play_menu{
+    display: none;
+    position: absolute;
+    margin-top: 45vh;
+    width: 100%;
+    text-align: center;
+}
+
+#wrapper{
+width: 100vw;
+height: 100vh;
+background-image: url("../images/menu_bg.jpg");
+background-position: center;;
+background-size: cover;
+}
+
+
+#menu_logo {
+  position: absolute;
+  left: 25%;
+  width: calc(50% + 3vw);
+}
+
+.optn {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Anton', sans-serif;
+}
+
+.options_button {
+  font-size: 14px;
+}
+
+#play_options {
+  list-style-type: none;
+}
+
+.menu_button {
+  font-size: 36px;
+}
+
+#play_button {
+  position: absolute;
+  margin-top: 52vh;
+  margin-left: 35vw;
+  height: 20vh;
+  width: 30vw;
+  border: solid;
+  border-radius: 5px;
+  font-size: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+#options_menu {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+}
+
+#optn_left {
+  margin: 10px;
+  float: left;
+}
+
+#optn_right {
+  margin: 10px;
+  float:right;
+}
+
+/* STAGE ----------------------------------------------------------------------------------------------*/
+
+.actor_box {
+  height: 100vh;
+  padding: 0px 100px 0px 100px;
+}
+
+#stage {
+  width: 100vw;
+  height: 100vh;
+}
+
+#stage_container {
+  display: none;
+}
+
+#scene_stage {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-size: cover;
+  z-index: 0;
+}
+
+.convo_opt {
+  display: none;
+  background-color: #FF99CC;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* STORYBOX ----------------------------------------------------------------------------------------------*/
+
+#story_box {
+  z-index: 2;
+  width: 94vw;
+  position: absolute;
+  padding: 2vh;
+  height: 20vh;
+  border-radius: 25px;
+  border-style: double;
+  border-color: purple;
+  border-width: 4px;
+  position: absolute;
+  bottom: 0;
+  background-color: #ffccff;
+}
