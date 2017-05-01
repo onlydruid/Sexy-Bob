@@ -10,9 +10,9 @@ body {
 
 @font-face {
     font-family: "Anton";
-    src: url("../fonts/Anton-Regular.ttf") format("opentype");   
+    src: url("../fonts/Anton-Regular.ttf") format("opentype");
         /* Make sure you defined the correct path, which is related to
-            the location of your file `my_css.css` */ 
+            the location of your file `my_css.css` */
     }
 
 /* MENU ----------------------------------------------------------------------------------------------*/
@@ -147,19 +147,24 @@ background-size: cover;
   width: 95%;
 }
 
+#town_menu{
+  display: none;
+  width: 95%;
+}
+
 .menu_item {
   display: flex;
-  height: 20vh;
+  height: 18vh;
   margin: 2.5vh;
   width: 500px;
 
 }
 
-.menu_item span, .home img {
+.menu_item span, .work span, .home img {
   display: inline-block;
 }
 
-.home span, .home img {
+.home span, .work span, .home img {
   display: block;
 }
 
@@ -170,7 +175,14 @@ background-size: cover;
   right: 20px;
 }
 
-.home span, .menu_item span {
+.work {
+  text-align: center;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+}
+
+.home span, .work span, .menu_item span {
   font-size: 36px;
   font-family: "Anton", sans-serif;
   color: white;
@@ -178,6 +190,6 @@ background-size: cover;
   -webkit-text-stroke-color: black;
 }
 
-.home img, .menu_item img {
+.home img, .work img, .menu_item img {
   height: 60px;
 }
