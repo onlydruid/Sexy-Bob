@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  overflow-y: hidden;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .clearfix {
@@ -30,7 +30,7 @@ width: 100vw;
 height: 100vh;
 max-width: 100%;
 background-image: url("../images/menu_bg.jpg");
-background-position: center;;
+background-position: center;
 background-size: cover;
 }
 
@@ -47,7 +47,7 @@ background-size: cover;
 }
 
 .options_button {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 #play_options {
@@ -55,7 +55,7 @@ background-size: cover;
 }
 
 .menu_button {
-  font-size: 36px;
+  font-size: 24px;
 }
 
 #play_button {
@@ -66,7 +66,7 @@ background-size: cover;
   width: 30vw;
   border: solid;
   border-radius: 5px;
-  font-size: 60px;
+  font-size: 36px;
   background-color: rgba(0, 0, 0, 0.5);
 
 }
@@ -116,6 +116,10 @@ background-size: cover;
   background-color: #FF99CC;
   margin-bottom: 10px;
   border-radius: 5px;
+  width: 40%;
+  margin: 0 calc(5% - 5px);
+  border: 1px solid grey;
+
 }
 
 /* STORYBOX ----------------------------------------------------------------------------------------------*/
@@ -124,8 +128,7 @@ background-size: cover;
   z-index: 2;
   width: 94vw;
   margin: 20px 3vw;
-  position: absolute;
-  padding: 4vh;
+  padding: 20px;
   height: 25vh;
   border-radius: 25px;
   border-style: double;
@@ -134,4 +137,47 @@ background-size: cover;
   position: absolute;
   bottom: 0;
   background-color: #ffccff;
+  font-size: 10px;
+}
+
+/* SCHOOL MENU ------------------------------------------------------------------------------------------*/
+
+#school_menu{
+  display: none;
+  width: 95%;
+}
+
+.menu_item {
+  display: flex;
+  height: 20vh;
+  margin: 2.5vh;
+  width: 500px;
+
+}
+
+.menu_item span, .home img {
+  display: inline-block;
+}
+
+.home span, .home img {
+  display: block;
+}
+
+.home {
+  text-align: center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.home span, .menu_item span {
+  font-size: 36px;
+  font-family: "Anton", sans-serif;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.home img, .menu_item img {
+  height: 60px;
 }

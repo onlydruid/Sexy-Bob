@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="bootstrap-3.3.7-dist\css\bootstrap.min.css" >
 </head>
 <body>
+  <audio autoplay>
+  <source src="bg-music.mp3" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
     <div id="wrapper">
         <div id="menu_container">
             <img src="images/title.png" id="menu_logo"></img>
@@ -52,19 +56,24 @@
             <div id="scene_stage">
             </div>
             <div id="school_menu">
-              <div class="menu_item">
+              <div id="sports_class" class="menu_item">
+                <img src="images/icons/sportsclass.png" />
                 <span>Sports Class</span>
               </div>
-              <div class="menu_item">
+              <div id="music_class" class="menu_item">
+                <img src="images/icons/musicclass.png" />
                 <span>Music Class</span>
               </div>
-              <div class="menu_item">
+              <div id="art_class" class="menu_item">
+                <img src="images/icons/artclass.png" />
                 <span>Art Class</span>
               </div>
-              <div class="menu_item">
+              <div id="skip_class" class="menu_item">
+                <img src="images/icons/skipclass.png" />
                 <span>Skip Class</span>
               </div>
-              <div class="menu_item">
+              <div id="home" class="home">
+                <img src="images/icons/home.png" />
                 <span>Go Home</span>
               </div>
             </div>
@@ -98,7 +107,7 @@
                 <span>Go Home</span>
               </div>
             </div>
-            <div id="shop_menu">
+            <div style="display: none" id="shop_menu">
               <div class="shop_item">
                 <img id="shop_img1" url=""/>
                 <span id="shop_item1"></span>
@@ -123,7 +132,6 @@
           </div>
         </div>
     </div>
-
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
