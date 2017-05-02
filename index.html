@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="bootstrap-3.3.7-dist\css\bootstrap.min.css" >
 </head>
 <body>
-  <audio autoplay>
+  <audio id="music" autoplay>
   <source src="bg-music.mp3" type="audio/ogg">
     Your browser does not support the audio element.
   </audio>
@@ -20,17 +20,20 @@
             <div id="play_menu">
                 <ul id="play_options">
                     <li id="new_game" class="optn menu_button">NEW GAME</li>
-                    <li class="optn menu_button">LOAD GAME</li>
-                    <li class="optn menu_button">DEVELOPERS</li>
+                    <li id="developers"class="optn menu_button">DEVELOPERS</li>
+                    <span id="dev_span" style="display: none;">Art: Kayla Donnelly, Development: Daniel Hines, Music: Kevin MacLeod</span>
                 </ul>
             </div>
             <div id="options_menu">
                 <span id="optn_left" class="optn options_button">SOUND ON/OFF</span>
-                <span id="optn_right" class="optn options_button">INSTRUCTIONS</span>
+                <a href="instructions.html"><span id="optn_right" class="optn options_button">INSTRUCTIONS</span></a>
                 <div class="clearfix"> </div>
             </div>
         </div>
         <div id="stage_container">
+          <div id="demo_end">
+            <span>Thanks for playing the Sexy Bob demo! Please reload the game to speak to another girl, all features will be avilable in the main game</span>
+          </div>
           <div id="story_box">
             <span class="optn" id="text_box" style=" position: relative; padding-top: 20%; color: black;"> Back in the old neighbourhood, I never thought I'd see this place again. I wonder if any of my old friends are still around, or if they even remember me.</span>
             <div id="convo_opt_list">
@@ -133,5 +136,28 @@
         </div>
     </div>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+    var devOn;
+      document.getElementById("developers").addEventListener('click', function(){
+        if(!devOn){
+          devOn = 1
+          document.getElementById("dev_span").style.display = "block";
+          document.getElementById("dev_span").style.color = "white";
+          document.getElementById("dev_span").style.fontFamily = "'Anton', sans-serif";
+        } else {
+          devOn--;
+          document.getElementById("dev_span").style.display = "none";
+        }
+      });
+
+      var audio = document.getElementById('music');
+
+      document.getElementById('optn_left').addEventListener('click', function (e)
+      {
+          e = e || window.event;
+          audio.muted = !audio.muted;
+          e.preventDefault();
+      }, false);
+    </script>
 </body>
 </html>

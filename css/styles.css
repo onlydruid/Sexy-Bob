@@ -193,3 +193,20 @@ background-size: cover;
 .home img, .work img, .menu_item img {
   height: 60px;
 }
+
+/* DEMO END SCREEN */
+#demo_end {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../images/menu_bg.jpg");
+  display: none;
+  z-index: 100;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  text-align: center;
+  font-size: 24px;
+  padding: 20vh 100px;
+}
+
+
+

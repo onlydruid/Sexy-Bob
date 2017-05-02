@@ -26,7 +26,7 @@ var miyakiStep = function(a){
 var actor = {
 	//basic attributes of actors
     name: 'actor',
-    convoScore: 0,
+    convoScore: 1,
     bio: "empty",
     likes: "empty",
     convo: [],
@@ -366,7 +366,7 @@ actor.Aiko.convo = [
   },
   { steps: 2, text: 'Bob: (This girl is strange but intriguing.)'},
   { steps: 2, text: 'Aiko: Hehe. I have to go now. *runs away*'},
-  { steps: 2, text: ' ', doSomething: function(){
+  { steps: 3, text: ' ', doSomething: function(){
       actor.Aiko.actRemove("mid");
       actor.Ichiro.actSpawn("right");
       scene.hallwayday.sceneSpawn();
@@ -391,23 +391,44 @@ actor.Miyaki.convo = [
       actor.Miyaki.convoOption({p1: 'Yeah that\’s cool. What\’s your name girl?', p2: 'I guess it\’s the only seat left...'});
     }
   },
-  { steps: 2, text: 'I\’m Miyaki. Anyway, you didn\’t tell me your name?’ (He\’s cute.)'},
-  { steps: 3, text: '',
+  { steps: 2, text: 'I\’m Miyaki. Anyway, you didn\’t tell me your name?’ (He\’s cute.)',
     doSomething: function(){
-      actor.Miyaki.convoOption({p1: 'Hey there! I’m Bob. Nice to meet you.', p2: '...'});
+      actor.Miyaki.responseWipe();
     }
   },
-  { steps: 4, text: 'Miyaki: So are you much of an artist, Bob?'},
+  { steps: 3, text: '',
+    doSomething: function(){
+      actor.Miyaki.responseWipe();
+      setTimeout(function(){
+        actor.Miyaki.convoOption({p1: 'Hey there! I’m Bob. Nice to meet you.', p2: '...'});
+        choiceActor = "Miyaki";
+        activeActor = "none";
+      }, 500);
+    }
+  },
+  { steps: 4, text: 'Miyaki: So are you much of an artist?',
+    doSomething: function(){
+      actor.Miyaki.responseWipe();
+        setTimeout(function(){
+          choiceActor = "none";
+          activeActor = "Miyaki";
+        }, 500);
+      }
+    },
   { steps: 5, text: ' ', 
     doSomething: function(){
+      actor.Miyaki.responseWipe();
       actor.Miyaki.convoOption({p1: 'Yeah I’ve been painting since I was a kid. Who’s your favourite artist?', p2: 'Nah I just took this for an easy pass'});
-      choiceActor = "none";
-      activeActor = "Miyaki";
+      choiceActor = "Miyaki";
+      activeActor = "none";
     }
   },
   { steps: 6, text: 'Miyaki: Oh! Not many boys in this school are into art, usually people just take this class for an easy pass. I’d say my favourite artist is probably Dali.', 
     doSomething: function(){
+      i = 7;
+      actor.Suki.convo.splice(i, 1);
       setTimeout(function(){
+        actor.Miyaki.responseWipe();
         choiceActor = "none";
         activeActor = "Miyaki";
       }, 500);
@@ -416,6 +437,7 @@ actor.Miyaki.convo = [
   { steps: 7, text: 'Miyaki: Oh, yeah you and everyone else',
     doSomething: function(){
       setTimeout(function(){
+        actor.Miyaki.responseWipe();
         choiceActor = "none";
         activeActor = "Miyaki";
       }, 500);
@@ -423,7 +445,14 @@ actor.Miyaki.convo = [
   },
   { steps: 8, text: 'Miyaki: Anyway I have to go print some of my work, see you soon?'},
   { steps: 9, text: 'Bob: Okay, yeah I’ll see you next time. Bye!'},
-  { steps: 10, text: ' '}
+  { steps: 10, text: ' ', 
+    doSomething: function(){
+      actor.Miyaki.actRemove("mid");
+      actor.Ichiro.actSpawn("right");
+      scene.hallwayday.sceneSpawn();
+      activeActor = "Ichiro";
+    }
+  }
 ]
 
 actor.Ichiro = Object.create(actor);
@@ -492,6 +521,8 @@ actor.Ichiro.convo = [
   },
 ];
 
+/* "Scene factory" Creating an object that handles all of the functions a scene or menu might need such as spawning, removing and hiding/showing menus */
+
 var scene = {
   name: "scene",
   image: " ",
@@ -500,6 +531,7 @@ var scene = {
     console.log("hellofam");
     switch(menu) {
       case "night":
+      storyBox.style.display = "none";
       schoolMenu = document.getElementById("town_menu");
       schoolMenu.style.display = "block";
       schoolMenu.style.position = "absolute";
@@ -507,42 +539,14 @@ var scene = {
       schoolMenu.style.left = "20px";
       storyBox = document.getElementById("story_box");
       storyBox.style.display = "none";
-      document.getElementById('gym').addEventListener('click', function(){
-        scene.gym.sceneSpawn();
-        activeActor = "Timoko";
-        schoolMenu.style.display = "none";
-        storyBox.style.display = "initial";
-      });
-      document.getElementById('biker_bar').addEventListener('click', function(){
-        scene.bikerBar.sceneSpawn();
-        actor.Timoko.actSpawn("mid");
-        schoolMenu.style.display = "none";
-        storyBox.style.display = "initial";
-        setTimeout(function(){activeActor = "Timoko"}, 500);
-      });
-      document.getElementById('concert_hall').addEventListener('click', function(){
-        scene.concertHall.sceneSpawn();
-        schoolMenu.style.display = "none";
-        storyBox.style.display = "initial";
-      });
-      document.getElementById('gallery').addEventListener('click', function(){
-        scene.gallery.sceneSpawn();
-        activeActor = "Suki";
-        actor.Suki.actSpawn("mid");
-        schoolMenu.style.display = "none";
-        storyBox.style.display = "initial";
-      });
-      document.getElementById('work').addEventListener('click', function(){
-        scene.work.sceneSpawn();
-        activeActor = "Suki";
-        actor.Suki.actSpawn("mid");
-        schoolMenu.style.display = "none";
-        storyBox.style.display = "initial";
-      });
       document.getElementById('home').addEventListener('click', function(){
         scene.home.sceneSpawn();
         storyBox.style.display = "initial";
       });
+      document.body.addEventListener('click', function(){
+          document.getElementById("demo_end").style.display = "block";
+          document.getElementById("demo_end").style.position = "absolute";
+        });
       break;
       case "day":
         schoolMenu = document.getElementById("school_menu");
@@ -578,10 +582,6 @@ var scene = {
           activeActor = "Suki";
           actor.Suki.actSpawn("mid");
           schoolMenu.style.display = "none";
-          storyBox.style.display = "initial";
-        });
-        document.getElementById('home').addEventListener('click', function(){
-          scene.home.sceneSpawn();
           storyBox.style.display = "initial";
         });
       break;
@@ -740,7 +740,7 @@ document.getElementById("convo_opt_2").addEventListener('click', function(){
       actor.Aiko.convoScore--;
     break;
     case "Miyaki":
-      miyakiStep();
+      miyakiStep(1);
       actor.Aiko.convoScore--;
     break;
     case "none":
