@@ -1,6 +1,6 @@
 <!-- config.xml reference: http://docs.phonegap.com/en/edge/config_ref_index.md.html#The%20config.xml%20File --> 
 
- <widget id="" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+ <widget id="com.dannyhines.sexybob" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
         <name>Sexy Bob</name>
         <description>
             Sexy Bob: Ai no Monogatari - Otome/Dating Game
@@ -17,6 +17,7 @@
 		
 		<!--if the dimensions of the screen do not match the images above, the default will be displayed -->
 		<!-- this must come after all spalsh screen elements of the specific sizes -->
+		<gap:splash src="images/splashimg1.png" />
 		
 		<!--icons can be customised - check here for more information: http://docs.phonegap.com/en/3.5.0/config_ref_images.md.html-->
 		<!--Android icons density: 36x36 for low-density (LDPI)
