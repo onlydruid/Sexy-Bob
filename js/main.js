@@ -3,8 +3,7 @@ var storyCheck = true;
 var prevActor;
 var activeActor = "Ichiro";
 var choiceActor = "Ichiro";
-locOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation || screen.orientation.lock;
-locOrientation('landscape');
+
 var ichStep = function (a){
   console.log(a);
   actor.Ichiro.takeStep(a);
@@ -752,9 +751,3 @@ document.getElementById("convo_opt_2").addEventListener('click', function(){
 window.addEventListener("scroll", preventMotion, false);
 window.addEventListener("touchmove", preventMotion, false);
 
-function preventMotion(event)
-{
-    window.scrollTo(0, 0);
-    event.preventDefault();
-    event.stopPropagation();
-}
